@@ -1,0 +1,84 @@
+model,metric,target_tokens,value,n,source_key,note
+gpt-6.1-sol,max_accepted_input_tokens,,921858,,context_limit.gpt-6.1-sol.max_accepted_input_tokens,
+gpt-6.1-sol,min_rejected_input_tokens,,921859,,context_limit.gpt-6.1-sol.min_rejected_input_tokens,
+gpt-6.1-sol,niah_accuracy,16000,1.0,15,niah_single.gpt-6.1-sol.by_length.16.acc,
+gpt-6.1-sol,niah_median_input_tokens,16000,16300,15,niah_single.gpt-6.1-sol.by_length.16.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,16000,2.53,15,niah_single.gpt-6.1-sol.by_length.16.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,64000,1.0,15,niah_single.gpt-6.1-sol.by_length.64.acc,
+gpt-6.1-sol,niah_median_input_tokens,64000,64101,15,niah_single.gpt-6.1-sol.by_length.64.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,64000,3.13,15,niah_single.gpt-6.1-sol.by_length.64.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,128000,1.0,15,niah_single.gpt-6.1-sol.by_length.128.acc,
+gpt-6.1-sol,niah_median_input_tokens,128000,128307,15,niah_single.gpt-6.1-sol.by_length.128.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,128000,3.67,15,niah_single.gpt-6.1-sol.by_length.128.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,200000,1.0,15,niah_single.gpt-6.1-sol.by_length.200.acc,
+gpt-6.1-sol,niah_median_input_tokens,200000,200509,15,niah_single.gpt-6.1-sol.by_length.200.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,200000,5.57,15,niah_single.gpt-6.1-sol.by_length.200.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,256000,1.0,15,niah_single.gpt-6.1-sol.by_length.256.acc,
+gpt-6.1-sol,niah_median_input_tokens,256000,255919,15,niah_single.gpt-6.1-sol.by_length.256.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,256000,6.31,15,niah_single.gpt-6.1-sol.by_length.256.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,400000,1.0,6,niah_single.gpt-6.1-sol.by_length.400.acc,
+gpt-6.1-sol,niah_median_input_tokens,400000,399679,6,niah_single.gpt-6.1-sol.by_length.400.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,400000,9.09,6,niah_single.gpt-6.1-sol.by_length.400.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,600000,1.0,6,niah_single.gpt-6.1-sol.by_length.600.acc,
+gpt-6.1-sol,niah_median_input_tokens,600000,600172,6,niah_single.gpt-6.1-sol.by_length.600.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,600000,12.8,6,niah_single.gpt-6.1-sol.by_length.600.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,850000,1.0,6,niah_single.gpt-6.1-sol.by_length.850.acc,
+gpt-6.1-sol,niah_median_input_tokens,850000,849525,6,niah_single.gpt-6.1-sol.by_length.850.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,850000,17.13,6,niah_single.gpt-6.1-sol.by_length.850.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,niah_accuracy,915000,1.0,5,niah_single.gpt-6.1-sol.by_length.915.acc,
+gpt-6.1-sol,niah_median_input_tokens,915000,913833,5,niah_single.gpt-6.1-sol.by_length.915.median_input_tokens,
+gpt-6.1-sol,niah_median_total_s,915000,17.36,5,niah_single.gpt-6.1-sol.by_length.915.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6.1-sol,multi_needle_mean_recall,128000,1.0,3,tasks.128.gpt-6.1-sol.multi_needle.mean_recall,
+gpt-6.1-sol,aggregate_exact_count,128000,3/3,3,tasks.128.gpt-6.1-sol.aggregate_sum20.n_exact,
+gpt-6.1-sol,multi_needle_mean_recall,400000,1.0,2,tasks.400.gpt-6.1-sol.multi_needle.mean_recall,빈 스트림 1건 제외
+gpt-6.1-sol,aggregate_exact_count,400000,2/2,2,tasks.400.gpt-6.1-sol.aggregate_sum20.n_exact,빈 스트림 1건 제외
+gpt-6.1-sol,multi_needle_mean_recall,900000,1.0,2,tasks.900.gpt-6.1-sol.multi_needle.mean_recall,
+gpt-6.1-sol,aggregate_exact_count,900000,2/2,2,tasks.900.gpt-6.1-sol.aggregate_sum20.n_exact,
+gpt-6.1-sol,hard_niah_accuracy,128000,1.0,3,hard_niah_distractor_update.128.gpt-6.1-sol.acc,
+gpt-6.1-sol,hard_niah_accuracy,850000,1.0,2,hard_niah_distractor_update.850.gpt-6.1-sol.acc,
+gpt-6.1-sol,latency_interleaved_median_total_s,600000,12.95,3,latency_interleaved.600.gpt-6.1-sol.median_total_s,범위 12.52-16.64
+gpt-6.1-sol,latency_interleaved_median_ttft_s,600000,12.36,3,latency_interleaved.600.gpt-6.1-sol.median_ttft_s,
+gpt-6.1-sol,prefill_tokens_per_s_est,600000,48544,3,latency_interleaved.600.gpt-6.1-sol.prefill_tok_per_s_median,목표 길이 / TTFT 중앙값
+gpt-6.1-sol,total_calls,,156,,calls.by_model.gpt-6.1-sol,
+gpt-6-sol,max_accepted_input_tokens,,921857,,context_limit.gpt-6-sol.max_accepted_input_tokens,921858 은 미시험
+gpt-6-sol,min_rejected_input_tokens,,921859,,context_limit.gpt-6-sol.min_rejected_input_tokens,
+gpt-6-sol,niah_accuracy,128000,1.0,5,niah_single.gpt-6-sol.by_length.128.acc,
+gpt-6-sol,niah_median_input_tokens,128000,127226,5,niah_single.gpt-6-sol.by_length.128.median_input_tokens,
+gpt-6-sol,niah_median_total_s,128000,3.14,5,niah_single.gpt-6-sol.by_length.128.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6-sol,niah_accuracy,256000,1.0,5,niah_single.gpt-6-sol.by_length.256.acc,
+gpt-6-sol,niah_median_input_tokens,256000,255817,5,niah_single.gpt-6-sol.by_length.256.median_input_tokens,
+gpt-6-sol,niah_median_total_s,256000,5.97,5,niah_single.gpt-6-sol.by_length.256.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6-sol,niah_accuracy,915000,1.0,5,niah_single.gpt-6-sol.by_length.915.acc,
+gpt-6-sol,niah_median_input_tokens,915000,914932,5,niah_single.gpt-6-sol.by_length.915.median_input_tokens,
+gpt-6-sol,niah_median_total_s,915000,25.63,5,niah_single.gpt-6-sol.by_length.915.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6-sol,multi_needle_mean_recall,128000,1.0,3,tasks.128.gpt-6-sol.multi_needle.mean_recall,
+gpt-6-sol,aggregate_exact_count,128000,2/3,3,tasks.128.gpt-6-sol.aggregate_sum20.n_exact,
+gpt-6-sol,multi_needle_mean_recall,900000,1.0,2,tasks.900.gpt-6-sol.multi_needle.mean_recall,
+gpt-6-sol,aggregate_exact_count,900000,2/2,2,tasks.900.gpt-6-sol.aggregate_sum20.n_exact,
+gpt-6-sol,hard_niah_accuracy,128000,1.0,3,hard_niah_distractor_update.128.gpt-6-sol.acc,
+gpt-6-sol,hard_niah_accuracy,850000,1.0,2,hard_niah_distractor_update.850.gpt-6-sol.acc,
+gpt-6-sol,latency_interleaved_median_total_s,600000,14.37,3,latency_interleaved.600.gpt-6-sol.median_total_s,범위 13.84-15.25
+gpt-6-sol,latency_interleaved_median_ttft_s,600000,13.59,3,latency_interleaved.600.gpt-6-sol.median_ttft_s,
+gpt-6-sol,prefill_tokens_per_s_est,600000,44150,3,latency_interleaved.600.gpt-6-sol.prefill_tok_per_s_median,목표 길이 / TTFT 중앙값
+gpt-6-sol,total_calls,,36,,calls.by_model.gpt-6-sol,
+gpt-6-astra,max_accepted_input_tokens,,921858,,context_limit.gpt-6-astra.max_accepted_input_tokens,
+gpt-6-astra,min_rejected_input_tokens,,921859,,context_limit.gpt-6-astra.min_rejected_input_tokens,
+gpt-6-astra,niah_accuracy,128000,1.0,5,niah_single.gpt-6-astra.by_length.128.acc,
+gpt-6-astra,niah_median_input_tokens,128000,127690,5,niah_single.gpt-6-astra.by_length.128.median_input_tokens,
+gpt-6-astra,niah_median_total_s,128000,4.7,5,niah_single.gpt-6-astra.by_length.128.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6-astra,niah_accuracy,256000,1.0,5,niah_single.gpt-6-astra.by_length.256.acc,
+gpt-6-astra,niah_median_input_tokens,256000,256921,5,niah_single.gpt-6-astra.by_length.256.median_input_tokens,
+gpt-6-astra,niah_median_total_s,256000,7.87,5,niah_single.gpt-6-astra.by_length.256.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6-astra,niah_accuracy,915000,1.0,5,niah_single.gpt-6-astra.by_length.915.acc,
+gpt-6-astra,niah_median_input_tokens,915000,915863,5,niah_single.gpt-6-astra.by_length.915.median_input_tokens,
+gpt-6-astra,niah_median_total_s,915000,32.72,5,niah_single.gpt-6-astra.by_length.915.median_total_s,"비순차 실행, 시간대 교란 가능"
+gpt-6-astra,multi_needle_mean_recall,128000,1.0,3,tasks.128.gpt-6-astra.multi_needle.mean_recall,
+gpt-6-astra,aggregate_exact_count,128000,3/3,3,tasks.128.gpt-6-astra.aggregate_sum20.n_exact,
+gpt-6-astra,multi_needle_mean_recall,900000,1.0,2,tasks.900.gpt-6-astra.multi_needle.mean_recall,
+gpt-6-astra,aggregate_exact_count,900000,1/2,2,tasks.900.gpt-6-astra.aggregate_sum20.n_exact,
+gpt-6-astra,hard_niah_accuracy,128000,1.0,3,hard_niah_distractor_update.128.gpt-6-astra.acc,
+gpt-6-astra,hard_niah_accuracy,850000,1.0,2,hard_niah_distractor_update.850.gpt-6-astra.acc,
+gpt-6-astra,latency_interleaved_median_total_s,600000,19.52,3,latency_interleaved.600.gpt-6-astra.median_total_s,범위 19.51-20.24
+gpt-6-astra,latency_interleaved_median_ttft_s,600000,18.84,3,latency_interleaved.600.gpt-6-astra.median_ttft_s,
+gpt-6-astra,prefill_tokens_per_s_est,600000,31847,3,latency_interleaved.600.gpt-6-astra.prefill_tok_per_s_median,목표 길이 / TTFT 중앙값
+gpt-6-astra,total_calls,,36,,calls.by_model.gpt-6-astra,

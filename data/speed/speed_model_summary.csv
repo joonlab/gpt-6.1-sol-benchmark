@@ -1,0 +1,6 @@
+model,visible_tok_s_medium_explain_median,visible_tok_s_medium_explain_q1,visible_tok_s_medium_explain_q3,visible_tok_s_n,ttft_s_short_fact_low_median,ttft_s_short_fact_all_efforts_median,reasoning_total_s_low_median,reasoning_total_s_max_median,reasoning_tokens_low_median,reasoning_tokens_max_median,reasoning_tokens_max_over_low,reasoning_correct,reasoning_graded,short_fact_correct,short_fact_n
+gpt-6.1-sol,31.1,29.6,37.7,15,1.87,2.41,17.6,53.5,283.0,1399.0,4.94,15,15,15,15
+gpt-6-sol,46.0,40.9,58.6,15,1.29,1.57,9.4,22.6,259.0,1034.0,3.99,12,15,15,15
+gpt-6-astra,33.0,32.7,33.3,15,1.87,2.02,18.7,44.0,291.0,1195.0,4.11,15,15,15,15
+gpt-6-luna,49.2,37.1,54.9,15,1.4,1.48,19.9,41.0,654.0,1145.0,1.75,11,15,15,15
+gpt-5.6-sol,54.9,54.7,55.2,15,1.33,1.33,14.3,24.5,470.0,1034.0,2.2,15,15,15,15

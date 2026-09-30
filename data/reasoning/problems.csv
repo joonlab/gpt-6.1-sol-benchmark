@@ -1,0 +1,51 @@
+id,difficulty,category,question,answer
+E01,easy,arith,"A bakery bakes 347 loaves per day for 23 days. Over that period 1289 loaves go unsold and are donated, and 4 crates of 118 loaves each are sent to a school for free. How many loaves were sold?",6220
+E02,easy,number,How many positive divisors does 7560 have?,64
+E03,easy,number,What is the sum of all positive integers less than 500 that are divisible by 3 or by 7 (or both)?,53679
+E04,easy,trap,A bat and a ball cost $1.40 in total. The bat costs $1.20 more than the ball. How many cents does the ball cost?,10
+E05,easy,arith,"How many days are there from March 14, 2026 to November 2, 2026, counting both the start and end dates?",234
+E06,easy,prob,Two fair six-sided dice are rolled. What is the probability that the sum is 9? Give a reduced fraction.,1/9
+E07,easy,number,What is the remainder when 3^100 is divided by 13?,3
+E08,easy,trap,"How many times does the letter 'r' appear in the string ""strawberry raspberry cranberry blueberry""?",11
+E09,easy,arith,"Two trains start 450 km apart and travel toward each other on parallel tracks, one at 70 km/h and the other at 80 km/h. After how many minutes do they meet?",180
+E10,easy,trap,"A snail is at the bottom of a 29 m well. Each day it climbs 6 m, and each night it slides back 4 m. On which day (counting the first day as day 1) does it first reach the top?",13
+M01,medium,comb,How many distinct arrangements are there of the letters of the word BANANAS?,420
+M02,medium,comb,"A lattice path goes from (0,0) to (8,6) using unit steps right (+1,0) or up (0,+1). How many such paths avoid both points (3,2) and (5,4)?",1083
+M03,medium,number,"How many integers n with 1 <= n <= 2026 are divisible by none of 2, 3, 5, 7?",462
+M04,medium,prob,Three cards are drawn without replacement from a standard 52-card deck. What is the probability that all three cards have different suits? Give a reduced fraction.,169/425
+M05,medium,comb,"How many subsets of {1, 2, ..., 16} (including the empty set) have an element sum divisible by 7?",9364
+M06,medium,prob,"A game show has 6 doors: one hides a car, five hide goats. You pick a door. The host, who knows where the car is, then opens 2 of the other doors, always revealing goats (choosing uniformly at random among valid options). You then switch to one of the remaining 3 unopened doors (not your original), chosen uniformly at random. What is your probability of winning the car? Give a reduced fraction.",5/18
+M07,medium,logic,"On an island, knights always tell the truth and knaves always lie. Five inhabitants A, B, C, D, E each make one statement.
+A: ""Exactly three of us five are knights.""
+B: ""A is a knave.""
+C: ""B and D are the same type (both knights or both knaves).""
+D: ""The number of knights among us five is even.""
+E: ""Exactly one of C and me is a knight.""
+How many of the five are knights?",1
+M08,medium,number,"Find the smallest positive integer n such that n leaves remainder 4 when divided by 7, remainder 6 when divided by 11, and remainder 9 when divided by 13.",347
+M09,medium,number,How many trailing zeros does 2026! (2026 factorial) have in base 10?,505
+M10,medium,prob,A fair coin is flipped repeatedly. What is the expected number of flips until the pattern H T H H first appears as consecutive flips? Give an integer or reduced fraction.,18
+H01,hard,comb,"How many integers n with 1 <= n <= 1,000,000 have digit sum exactly 29?",53262
+H02,hard,comb,"How many permutations p of {1,2,...,8} satisfy p(i) != i for all i, and p(i) != i+1 for all i from 1 to 7?",5413
+H03,hard,comb,In how many ways can a 4 x 7 rectangle be tiled completely with 1 x 2 dominoes?,781
+H04,hard,number,Let S be the set of integers n with 1 <= n <= 1000 such that n^2 + n + 43 is NOT prime. What is the sum of the elements of S?,449402
+H05,hard,prob,"Five cards are dealt from a well-shuffled standard 52-card deck. What is the probability that the hand is exactly ""two pair"" (two cards of one rank, two cards of another rank, and a fifth card of a third rank)? Give a reduced fraction.",198/4165
+H06,hard,comb,"How many solutions in nonnegative integers (x1, x2, x3, x4) does x1 + 2*x2 + 3*x3 + 5*x4 = 43 have?",631
+H07,hard,number,What are the last three digits of 7^(7^7)? Answer as an integer from 0 to 999.,343
+H08,hard,comb,"How many strings of length 11 over the alphabet {A, B, C} have no two equal adjacent letters and do not contain ""ABC"" as a contiguous substring?",1234
+H09,hard,prob,"A fair six-sided die is rolled repeatedly until each of the faces 1, 2, 3 and 4 has appeared at least once (faces 5 and 6 do not matter). What is the expected number of rolls? Give a reduced fraction.",25/2
+H10,hard,comb,How many proper vertex colorings of the Petersen graph use at most 3 colors from a fixed set of 3 colors (adjacent vertices must receive different colors; colorings are counted as labeled assignments)?,120
+H11,hard,number,"How many ordered triples (a, b, c) of positive integers satisfy a * b * c = 9! (9 factorial)?",4860
+H12,hard,comb,"Seven people, including A, B and C, sit at a round table with 7 seats. Arrangements that differ only by rotation are considered the same. In how many arrangements are no two of A, B, C sitting next to each other?",144
+H13,hard,prob,"Two distinct integers are chosen uniformly at random from {1, 2, ..., 100}. What is the probability that their product is divisible by 12? Give a reduced fraction.",41/150
+H14,hard,arith,"A sequence satisfies a_1 = 2, a_2 = 5, and a_{n+2} = 3*a_{n+1} - a_n + n for n >= 1. What is a_20 mod 1000?",291
+X01,xhard,comb,"How many 5 x 5 matrices with entries in {0,1} have every row sum equal to 2 and every column sum equal to 2, and contain no 2 x 2 submatrix (formed by choosing any 2 rows and any 2 columns) whose four entries are all 1?",1440
+X02,xhard,comb,"In how many ways can 6 identical kings be placed on a 5 x 5 chessboard so that no two kings attack each other (i.e., no two are in horizontally, vertically or diagonally adjacent squares)?",978
+X03,xhard,prob,"A gambler starts with 3 dollars and bets 1 dollar at a time, winning each bet with probability 2/5 and losing with probability 3/5, independently. He stops when he has 10 dollars or 0 dollars. What is the probability he reaches 10 dollars? Give a reduced fraction.",2432/58025
+X04,xhard,comb,"In how many ways can 60 be written as a sum of distinct positive odd integers, where order does not matter?",209
+X05,xhard,number,"Compute the sum of Euler's totient phi(n) for n = 1, 2, ..., 200.",12232
+X06,xhard,comb,"How many spanning trees does the 3 x 4 grid graph have? (Vertices are the 12 points (i,j) with 0<=i<=2, 0<=j<=3; edges join points at distance 1.)",2415
+X07,xhard,prob,A fair coin is flipped 10 times. What is the expected length of the longest run of consecutive heads (0 if there are no heads)? Give a reduced fraction.,1433/512
+X08,xhard,comb,How many 7-digit positive integers have the property that the product of their digits equals 432?,8575
+X09,xhard,number,"What is the remainder when the binomial coefficient C(2026, 1013) is divided by 1009? (1009 is prime.)",140
+X10,xhard,number,"How many ordered pairs (a, b) of integers with 1 <= a <= 60 and 1 <= b <= 60 satisfy gcd(a, b) = 1 and a + b is prime?",843

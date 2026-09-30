@@ -1,0 +1,19 @@
+id,prompt,checks,n_checks
+len_range,가을 산책의 장점을 설명하는 글을 써라. 공백 포함 150자 이상 200자 이하. 글만 출력하라.,len_150_200,1
+five_sentences,"재택근무의 장단점을 정확히 5문장으로 써라. 모든 문장은 마침표로 끝내고, 줄바꿈 없이 한 문단으로. 글만 출력하라.",all_end_with_period;exactly_5_sentences;single_paragraph,3
+banned_words,"챗봇으로 업무 메일을 빨리 쓰는 요령을 3문장으로 알려줘. 단, '인공지능'과 'AI'라는 단어는 절대 쓰지 마라. 글만 출력하라.",3_sentences;no_AI;no_인공지능,3
+must_include,"'봄비', '우산', '지하철' 세 단어를 모두 넣어 짧은 일기를 써라. 공백 포함 100자 이하. 글만 출력하라.",has_봄비;has_우산;has_지하철;len_le_100,4
+formal_hamnida,고객에게 배송 지연을 사과하는 안내문을 정확히 4문장으로 써라. 모든 문장을 '-습니다/-ㅂ니다'체로 끝내고 마침표를 찍어라. 글만 출력하라.,4_sentences;all_습니다체,2
+banmal,"친한 친구에게 주말 등산을 권하는 메시지를 정확히 4문장, 반말로 써라. '-요'나 '-니다'로 끝나는 문장 금지. 각 문장은 마침표·물음표·느낌표 중 하나로 끝내라. 메시지만 출력하라.",4_sentences;no_니다;no_요_ending,3
+numbered_list,"집중력을 높이는 방법 7가지를 번호 목록으로 써라. 형식은 '1. 내용'처럼 숫자+마침표+공백, 한 줄에 하나, 각 항목 내용은 20자 이하. 목록 외 다른 문장은 쓰지 마라.",each_le_20_chars;exactly_7_lines;numbered_1_to_7,3
+json_only,"가상의 인물 한 명을 JSON 객체로만 출력하라. 키는 정확히 name(문자열), age(정수), hobbies(문자열 3개짜리 배열) 세 개. 코드펜스나 설명 없이 JSON만.",age_int;hobbies_3_str;keys_exact;no_code_fence;parses_raw,5
+three_line_summary,"다음 글을 정확히 3줄로 요약하라. 각 줄은 '- '로 시작하고 40자 이하, 명사형 종결(~함, ~음, ~됨)로 끝내라. 요약만 출력하라.
+
+글: 올해 3분기 회사 매출은 전년 대비 12% 늘었다. 해외 시장, 특히 동남아 지역 판매가 크게 증가한 것이 주된 요인이다. 반면 원자재 가격 상승으로 영업이익률은 1.5%p 하락했다. 경영진은 4분기에 비용 절감 프로그램을 시행하고 신제품 두 종을 출시할 계획이다. 업계는 환율 변동을 주요 변수로 보고 있다.",dash_prefix;each_le_40;exactly_3_lines;명사형_ending,4
+acrostic,"'바나나'로 삼행시를 지어라. 정확히 3줄이고 각 줄은 순서대로 '바', '나', '나'로 시작해야 한다. 삼행시만 출력하라(글자 표시나 콜론 없이 바로 문장).",exactly_3_lines;no_label_prefix;starts_바나나,3
+title_brackets,"동네 도서관 소개 글을 써라. 첫 줄은 【제목】 형식의 제목만, 그다음 빈 줄, 그다음 두 문단(문단 사이 빈 줄 하나). 그 외 형식 금지.",3_blocks_title+2para;first_line_【】,2
+no_digits,한국의 사계절을 정확히 4문장으로 설명하라. 아라비아 숫자(0-9)를 한 글자도 쓰지 마라. 글만 출력하라.,4_sentences;no_arabic_digit,2
+no_latin,그래픽카드가 딥러닝에 왜 유리한지 250자 이하로 설명하라. 영어 알파벳을 한 글자도 쓰지 마라(약어도 한글로 풀어 써라). 글만 출력하라.,len_le_250;no_latin,2
+md_table,"마크다운 표 하나만 출력하라. 헤더는 정확히 '| 과일 | 색 | 맛 |', 그다음 구분선, 그다음 데이터 행 정확히 4개. 표 앞뒤로 아무 글도 쓰지 마라.",3_cols_each;4_data_rows;header_exact;separator;table_only,5
+hashtags,"새로 연 동네 빵집을 홍보하는 짧은 SNS 글을 써라. 이모지 금지. 마지막 줄에는 한글 해시태그 정확히 3개만(예: #빵집 #맛집 #동네), 다른 줄에는 # 기호 금지.",last_line_3_tags;no_emoji;no_hash_elsewhere;tags_korean_only,4
+question_end,처음 만난 동료에게 건넬 인사말을 정확히 2문장으로 써라. 마지막 문장은 질문이어야 하고 물음표로 끝나야 한다. 인사말만 출력하라.,2_sentences;ends_with_?,2

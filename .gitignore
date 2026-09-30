@@ -1,0 +1,13 @@
+.DS_Store
+._*
+.AppleDouble
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.env
+.env.*

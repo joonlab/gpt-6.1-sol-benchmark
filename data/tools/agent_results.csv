@@ -1,0 +1,81 @@
+model,task_id,rep,correct,outcome,final_answer,per_item_ok,model_turns,tool_calls,tool_errors,episode_latency_s,reasoning_tokens
+gpt-6.1-sol,a1,0,true,ok,180000 | 22,true;true,4,3,0,13.941,0
+gpt-6.1-sol,a1,1,true,ok,180000 | 22,true;true,4,3,0,14.859,0
+gpt-6.1-sol,a2,0,true,ok,도쿄 | 8,true;true,6,5,0,21.043,0
+gpt-6.1-sol,a2,1,true,ok,도쿄 | 8,true;true,6,5,0,19.785,0
+gpt-6.1-sol,a3,0,true,ok,3838.33 | 621810,true;true,4,3,0,12.377,0
+gpt-6.1-sol,a3,1,true,ok,3838.33 | 621810,true;true,4,3,0,14.267,0
+gpt-6.1-sol,a4,0,true,ok,418500,true,4,3,0,18.209,0
+gpt-6.1-sol,a4,1,true,ok,418500,true,4,3,0,15.696,0
+gpt-6.1-sol,a5,0,true,ok,17.3,true,7,6,0,24.613,0
+gpt-6.1-sol,a5,1,true,ok,17.3,true,7,6,0,23.822,0
+gpt-6.1-sol,a6,0,true,ok,6 | 785.19,true,6,5,0,19.843,0
+gpt-6.1-sol,a6,1,true,ok,6 | 785.19,true,6,5,0,21.047,0
+gpt-6.1-sol,a7,0,true,ok,282787.5 | Rain,true;true,4,3,0,13.264,0
+gpt-6.1-sol,a7,1,true,ok,282787.5 | Rain,true;true,4,3,0,13.54,0
+gpt-6.1-sol,a8,0,true,ok,144,true,4,3,0,14.127,0
+gpt-6.1-sol,a8,1,true,ok,144,true,4,3,0,15.179,0
+gpt-6-sol,a1,0,true,ok,Sato Ken | 180000 | 22,true;true,4,3,0,10.778,0
+gpt-6-sol,a1,1,true,ok,Sato Ken | 180000 | 22,true;true,4,3,0,11.31,0
+gpt-6-sol,a2,0,true,ok,도쿄 | 8,true;true,6,5,0,14.782,14
+gpt-6-sol,a2,1,true,ok,도쿄 | 8,true;true,6,5,0,14.343,13
+gpt-6-sol,a3,0,true,ok,3838.33 | 621810,true;true,4,3,0,18.639,0
+gpt-6-sol,a3,1,true,ok,3838.33 | 621810,true;true,4,3,0,9.86,0
+gpt-6-sol,a4,0,true,ok,418500,true,4,3,0,10.928,0
+gpt-6-sol,a4,1,true,ok,418500,true,4,3,0,16.361,0
+gpt-6-sol,a5,0,true,ok,17.3,true,7,6,0,17.288,20
+gpt-6-sol,a5,1,true,ok,17.3,true,7,6,0,16.078,19
+gpt-6-sol,a6,0,true,ok,785.19,true,6,5,1,18.143,18
+gpt-6-sol,a6,1,true,ok,785.19,true,5,4,0,12.753,0
+gpt-6-sol,a7,0,true,ok,282787.5 | Rain,true;true,4,3,0,10.951,0
+gpt-6-sol,a7,1,true,ok,282787.5 | Rain,true;true,4,3,0,10.889,0
+gpt-6-sol,a8,0,true,ok,144,true,4,3,0,12.047,0
+gpt-6-sol,a8,1,true,ok,144,true,4,3,0,9.035,0
+gpt-6-astra,a1,0,true,ok,180000 | 22,true;true,4,3,0,12.154,0
+gpt-6-astra,a1,1,true,ok,180000 | 22,true;true,4,3,0,13.167,0
+gpt-6-astra,a2,0,true,ok,도쿄 | 8,true;true,5,4,0,15.087,0
+gpt-6-astra,a2,1,true,ok,도쿄 | 8,true;true,5,4,0,13.397,0
+gpt-6-astra,a3,0,true,ok,3838.33 | 621810,true;true,4,3,0,13.635,0
+gpt-6-astra,a3,1,true,ok,3838.33 | 621810.0,true;true,4,3,0,13.013,0
+gpt-6-astra,a4,0,true,ok,418500,true,4,3,0,11.847,0
+gpt-6-astra,a4,1,true,ok,418500,true,4,3,0,16.241,0
+gpt-6-astra,a5,0,true,ok,17.3,true,7,6,0,18.103,0
+gpt-6-astra,a5,1,true,ok,17.3,true,7,6,0,18.724,0
+gpt-6-astra,a6,0,true,ok,6 | 1060000 | 785.19,true,6,5,0,16.986,0
+gpt-6-astra,a6,1,true,ok,6 | 1060000 | 785.19,true,6,5,0,16.402,0
+gpt-6-astra,a7,0,true,ok,282787.5 | Rain,true;true,4,3,0,11.503,0
+gpt-6-astra,a7,1,true,ok,282787.5 | Rain,true;true,4,3,0,9.96,0
+gpt-6-astra,a8,0,true,ok,144,true,4,3,0,14.298,0
+gpt-6-astra,a8,1,true,ok,144,true,4,3,0,13.105,0
+gpt-6-luna,a1,0,true,ok,Sato Ken | 180000 | 22,true;true,4,3,0,8.979,0
+gpt-6-luna,a1,1,true,ok,180000 | 22,true;true,4,3,0,10.589,0
+gpt-6-luna,a2,0,true,ok,Tokyo | 8°C,true;true,5,4,0,11.679,0
+gpt-6-luna,a2,1,true,ok,도쿄 | 8°C,true;true,5,4,0,11.523,0
+gpt-6-luna,a3,0,true,ok,3838.33 EUR | 621810 JPY,true;true,4,3,0,11.414,0
+gpt-6-luna,a3,1,true,ok,3838.33 EUR | 621810 JPY,true;true,4,3,0,9.419,0
+gpt-6-luna,a4,0,true,ok,418500 KRW,true,4,3,0,8.79,0
+gpt-6-luna,a4,1,true,ok,김민수 | 418500 KRW,true,4,3,0,10.367,0
+gpt-6-luna,a5,0,true,ok,17.3°C,true,7,6,0,14.409,0
+gpt-6-luna,a5,1,true,ok,17.3°C,true,7,6,0,15.449,0
+gpt-6-luna,a6,0,true,ok,6 | 785.19,true,7,6,1,15.912,0
+gpt-6-luna,a6,1,true,ok,785.19 USD,true,7,6,1,18.05,0
+gpt-6-luna,a7,0,true,ok,282787.5 JPY | Rain,true;true,4,3,0,8.487,0
+gpt-6-luna,a7,1,true,ok,282787.5 JPY | Rain,true;true,4,3,0,7.333,0
+gpt-6-luna,a8,0,true,ok,144.0 GBP,true,5,4,0,15.775,0
+gpt-6-luna,a8,1,true,ok,Emma Brown | 144,true,5,4,0,18.869,0
+gpt-5.6-sol,a1,0,true,ok,180000 | 22,true;true,4,3,0,12.488,15
+gpt-5.6-sol,a1,1,true,ok,180000 | 22,true;true,4,3,0,11.084,17
+gpt-5.6-sol,a2,0,true,ok,도쿄 | 8,true;true,5,4,0,12.25,12
+gpt-5.6-sol,a2,1,true,ok,도쿄 | 8,true;true,5,4,0,11.008,15
+gpt-5.6-sol,a3,0,true,ok,3838.33 | 621810,true;true,4,3,0,10.337,11
+gpt-5.6-sol,a3,1,true,ok,3838.33 | 621810,true;true,4,3,0,12.191,12
+gpt-5.6-sol,a4,0,true,ok,418500,true,4,3,0,11.165,26
+gpt-5.6-sol,a4,1,true,ok,418500,true,4,3,0,10.751,30
+gpt-5.6-sol,a5,0,true,ok,17.3,true,7,6,0,17.996,15
+gpt-5.6-sol,a5,1,true,ok,17.3,true,7,6,0,15.673,19
+gpt-5.6-sol,a6,0,true,ok,785.19,true,5,4,0,14.046,45
+gpt-5.6-sol,a6,1,true,ok,785.19,true,6,5,1,15.528,63
+gpt-5.6-sol,a7,0,true,ok,282787.5 | Rain,true;true,4,3,0,9.626,19
+gpt-5.6-sol,a7,1,true,ok,282787.5 | Rain,true;true,4,3,0,9.407,21
+gpt-5.6-sol,a8,0,true,ok,144,true,4,3,0,12.281,23
+gpt-5.6-sol,a8,1,true,ok,144,true,4,3,0,12.66,46

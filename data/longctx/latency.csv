@@ -1,0 +1,10 @@
+model,call_order,target_tokens,actual_input_tokens,rep,found,ttft_s,total_s
+gpt-6.1-sol,1,600000,600065,0,true,12.36,12.95
+gpt-6-sol,2,600000,601797,0,true,14.33,15.25
+gpt-6-astra,3,600000,597677,0,true,18.84,19.52
+gpt-6-sol,4,600000,598953,1,true,13.59,14.37
+gpt-6-astra,5,600000,602237,1,true,18.79,19.51
+gpt-6.1-sol,6,600000,599612,1,true,11.5,12.52
+gpt-6-astra,7,600000,601753,2,true,18.96,20.24
+gpt-6.1-sol,8,600000,603146,2,true,16.08,16.64
+gpt-6-sol,9,600000,599820,2,true,12.89,13.84

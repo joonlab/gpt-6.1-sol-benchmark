@@ -1,0 +1,52 @@
+id,category,image,prompt,gold,scoring
+bar_values,chart,images/bar_values.png,"막대 차트에서 각 도시의 값을 읽어라. 키는 도시 이름, 값은 정수.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""서울"":42,""부산"":27,""대구"":35,""인천"":18,""광주"":51}","{""서울"":""num±2"",""부산"":""num±2"",""대구"":""num±2"",""인천"":""num±2"",""광주"":""num±2""}"
+line_points,chart,images/line_points.png,"선 차트를 읽어 {""max_month"": ""N월"", ""value_4월"": 정수, ""value_6월"": 정수, ""drops"": 전월 대비 감소한 달의 수} 형식으로 답하라.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""max_month"":""7월"",""value_4월"":160,""value_6월"":175,""drops"":3}","{""max_month"":""str"",""value_4월"":""num±3"",""value_6월"":""num±3"",""drops"":""int""}"
+pie_share,chart,images/pie_share.png,"파이 차트에서 각 조각의 비율(%)을 정수로 추정하라. 키는 A,B,C,D.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""A"":40,""B"":25,""C"":20,""D"":15}","{""A"":""num±3"",""B"":""num±3"",""C"":""num±3"",""D"":""num±3""}"
+grouped_bar,chart,images/grouped_bar.png,"제품 Y가 제품 X보다 높은 분기들과, X와 Y의 차이가 가장 큰 분기를 답하라. 형식: {""y_higher"": [""N분기"", ...], ""max_gap"": ""N분기""}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""y_higher"":[""1분기"",""3분기""],""max_gap"":""2분기""}","{""y_higher"":""set"",""max_gap"":""str""}"
+scatter_quadrant,count,images/scatter_quadrant.png,"산점도의 점을 사분면별로 세라. Q1=x>0,y>0 / Q2=x<0,y>0 / Q3=x<0,y<0 / Q4=x>0,y<0. 키는 Q1~Q4, 값은 정수.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""Q1"":6,""Q2"":4,""Q3"":3,""Q4"":5}","{""Q1"":""int"",""Q2"":""int"",""Q3"":""int"",""Q4"":""int""}"
+table_ocr,ocr,images/table_ocr.png,"표를 읽어 {""rows"": [[이름, 부서, 사번, 점수], ...]} 형식으로 데이터 행(헤더 제외)을 순서대로 모두 문자열로 옮겨라.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""rows"":[[""김하늘"",""개발"",""A1043"",""87.5""],[""이도윤"",""영업"",""B2291"",""92.0""],[""박서준"",""기획"",""C0718"",""78.25""],[""최유나"",""인사"",""D3350"",""95.75""]]}","{""rows"":""list""}"
+korean_ocr,ocr,images/korean_ocr.png,"이미지의 한글 문장을 한 글자도 바꾸지 말고 그대로 옮겨라. 줄바꿈은 공백 하나로 합친다. 형식: {""text"": ""...""}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""text"":""오늘 아침 서울의 기온은 영하 3도였다. 출근길 지하철은 평소보다 붐볐고, 사람들은 두꺼운 외투를 여미며 발걸음을 재촉했다. 점심 무렵에는 햇살이 비쳐 조금 따뜻해졌지만, 저녁에는 다시 바람이 거세졌다.""}","{""text"":""text""}"
+receipt_total,ocr,images/receipt_total.png,"영수증의 합계 칸이 가려져 있다. 품목 줄을 읽고 {""item_lines"": 품목 줄 수, ""total_qty"": 전체 수량 합, ""total"": 합계 금액 정수} 로 답하라.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""item_lines"":4,""total_qty"":7,""total"":24400}","{""item_lines"":""int"",""total_qty"":""int"",""total"":""int""}"
+count_circles,count,images/count_circles.png,"원의 개수를 정확히 세라. 형식: {""count"": 정수}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""count"":23}","{""count"":""int""}"
+count_shapes,count,images/count_shapes.png,"도형을 종류별로 세라. 키는 circle, square, triangle.
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""circle"":6,""square"":8,""triangle"":5}","{""circle"":""int"",""square"":""int"",""triangle"":""int""}"
+small_text,ocr,images/small_text.png,"이미지 오른쪽 아래 구석의 작은 코드(CODE: 뒤)를 정확히 읽어라. 형식: {""code"": ""...""}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""code"":""K7Q-29XM-4B""}","{""code"":""str""}"
+rotated_90,ocr,images/rotated_90.png,"이미지 속 회전된 텍스트를 읽어라. 형식: {""text"": ""...""}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""text"":""ORDER 58213-ZX""}","{""text"":""str""}"
+rotated_ko_35,ocr,images/rotated_ko_35.png,"이미지 속 기울어진 한글 문장을 그대로 읽어라. 형식: {""text"": ""...""}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""text"":""회의는 목요일 오후 네시""}","{""text"":""str""}"
+diagram_graph,diagram,images/diagram_graph.png,"화살표는 방향을 가진 연결이다. {""into_B"": B로 들어오는 노드 목록, ""out_of_E"": E에서 나가는 노드 목록, ""sink"": 나가는 화살표가 없는 노드 목록, ""path_A_to_F"": A에서 F까지 경로(노드 순서 리스트)}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""into_B"":[""A"",""D"",""E""],""out_of_E"":[""B"",""F""],""sink"":[""F""],""path_A_to_F"":[""A"",""B"",""C"",""F""]}","{""into_B"":""set"",""out_of_E"":""set"",""sink"":""set"",""path_A_to_F"":""list""}"
+grid_cells,diagram,images/grid_cells.png,"5x5 격자에서 행 번호는 왼쪽, 열 번호는 위쪽에 있다. 빨간 칸과 파란 칸을 ""행,열"" 문자열 목록으로 답하라. 형식: {""red"": [""r,c"", ...], ""blue"": [...]}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""red"":[""1,2"",""3,4"",""5,1"",""2,5"",""4,3""],""blue"":[""1,5"",""5,5"",""3,2""]}","{""red"":""set"",""blue"":""set""}"
+clock,diagram,images/clock.png,"아날로그 시계가 가리키는 시각을 답하라. 형식: {""hour"": 1~12 정수, ""minute"": 정수}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""hour"":4,""minute"":40}","{""hour"":""int"",""minute"":""num±1""}"
+digit_grid,ocr,images/digit_grid.png,"6x6 숫자 격자다. {""row3"": 위에서 세 번째 행의 숫자 목록, ""col5_sum"": 왼쪽에서 다섯 번째 열 합계, ""max"": 전체 최댓값}
+
+답은 설명 없이 JSON 객체 하나만 출력하라. 코드펜스 금지.","{""row3"":[77,40,10,11,57,84],""col5_sum"":310,""max"":98}","{""row3"":""list"",""col5_sum"":""int"",""max"":""int""}"

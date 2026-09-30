@@ -1,0 +1,11 @@
+part,model,calls,ok,failed,mean_score,full_score_cells,full_score_rate,median_total_s,median_ttft_s,median_reasoning_tokens,median_output_tokens
+vision,gpt-6.1-sol,34,34,0,1.0,34,1.0,4.645,3.496,0.0,43.0
+vision,gpt-6-sol,34,34,0,0.999,32,0.941,4.36,3.52,52.5,84.5
+vision,gpt-6-astra,34,34,0,1.0,34,1.0,4.52,3.279,0.0,41.0
+vision,gpt-6-luna,34,34,0,0.941,31,0.912,3.725,2.938,49.0,78.0
+vision,gpt-5.6-sol,34,34,0,0.985,33,0.971,3.469,2.437,0.0,69.0
+ko_instruction,gpt-6.1-sol,32,32,0,1.0,32,1.0,6.087,2.87,0.0,85.5
+ko_instruction,gpt-6-sol,32,32,0,1.0,32,1.0,5.155,3.37,28.5,102.5
+ko_instruction,gpt-6-astra,32,32,0,1.0,32,1.0,5.483,2.564,0.0,82.0
+ko_instruction,gpt-6-luna,32,32,0,0.969,31,0.969,4.072,2.311,8.5,88.5
+ko_instruction,gpt-5.6-sol,32,32,0,1.0,32,1.0,3.624,2.196,23.5,92.0

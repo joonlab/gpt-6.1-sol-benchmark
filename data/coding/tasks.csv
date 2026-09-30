@@ -1,0 +1,253 @@
+id,stage,level,category,title,entry_point,forbidden_constructs,spec,n_hidden_tests
+e1_rle,core19,easy,string,Run-length encoding,rle_encode,,"Write a Python function `rle_encode(s: str) -> str` that run-length encodes a string.
+Each maximal run of the same character becomes the character followed by the run length in decimal
+(the count is ALWAYS written, even when it is 1). The input never contains digit characters.
+Examples: rle_encode(""aaabcc"") == ""a3b1c2"", rle_encode("""") == """".
+Characters are compared exactly (case-sensitive; spaces and punctuation are ordinary characters).",9
+e2_brackets,core19,easy,string,Bracket balance check,is_balanced,,"Write a Python function `is_balanced(s: str) -> bool` that returns True iff the brackets
+(), [] and {} in `s` are balanced and properly nested. All other characters are ignored.
+The empty string is balanced.",10
+e3_roman,core19,easy,string,Roman numeral to int,roman_to_int,,"Write a Python function `roman_to_int(s: str) -> int` converting a valid Roman numeral
+(standard subtractive notation, values 1..3999, uppercase letters IVXLCDM) to an integer.",8
+e4_topk,core19,easy,string,Top-k frequent words,top_k_words,,"Write a Python function `top_k_words(text: str, k: int) -> list[tuple[str, int]]`.
+A word is a maximal run of ASCII letters a-z or A-Z; every other character (digits, apostrophes,
+hyphens, spaces, non-ASCII letters, ...) is a separator. Words are compared case-insensitively and
+reported in lowercase. Return the k most frequent words as (word, count) tuples, sorted by count
+descending, then word ascending. If there are fewer than k distinct words, return all of them.
+k >= 0.",9
+b1_lower_bound,core19,easy,bugfix,Fix buggy lower-bound binary search,first_ge,,"The following function is supposed to return the smallest index i such that arr[i] >= x,
+or len(arr) if no such index exists. `arr` is sorted in non-decreasing order and may contain
+duplicates or be empty. It must run in O(log n). The implementation is buggy (wrong results and it can
+loop forever). Fix it and return the complete corrected function.
+
+```python
+def first_ge(arr, x):
+    lo, hi = 0, len(arr) - 1
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if arr[mid] < x:
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
+```",10
+m1_merge_intervals,core19,medium,data_structure,Merge intervals,merge_intervals,,"Write a Python function `merge_intervals(intervals: list[list[int]]) -> list[list[int]]`.
+Each interval is [start, end] with start <= end (closed interval). Merge all overlapping intervals;
+intervals that merely touch (e.g. [1,2] and [2,3]) also merge. Return the merged intervals sorted by
+start. The input may be unsorted and empty. Do not modify the input list or its inner lists.",9
+m2_lru,core19,medium,data_structure,LRU cache class,LRUCache,,"Implement a Python class `LRUCache` with:
+- `__init__(self, capacity: int)` (capacity >= 1)
+- `get(self, key) -> value`: return the stored value, or -1 if absent. A successful get marks the key
+  as most recently used.
+- `put(self, key, value) -> None`: insert or update. Updating an existing key also marks it most
+  recently used. If inserting a new key exceeds capacity, evict the least recently used key first.
+Both operations must be O(1) average.",9
+m3_coin_ways,core19,medium,dp,Coin change: number of ways,coin_change_ways,,"Write a Python function `coin_change_ways(amount: int, coins: list[int]) -> int` returning the
+number of distinct combinations (order does not matter) of coins that sum to `amount`, using each coin
+denomination unlimited times, modulo 1_000_000_007. `coins` holds distinct positive integers and may be
+empty. amount >= 0; the number of ways to make 0 is 1.",9
+m4_grid_bfs,core19,medium,graph,Grid shortest path (BFS),shortest_path,,"Write a Python function `shortest_path(grid: list[str]) -> int`. The grid rows are equal-length
+strings made of '.', '#', 'S', 'E' (exactly one 'S' and exactly one 'E'). From 'S', move one cell up,
+down, left or right per step; '#' is a wall and you may not leave the grid. Return the minimum number
+of steps to reach 'E', or -1 if unreachable.",9
+m5_topo,core19,medium,graph,Topological order with cycle detection,topo_order,,"Write a Python function `topo_order(n: int, edges: list[tuple[int, int]]) -> list[int] | None`.
+Nodes are 0..n-1; an edge (u, v) means u must come before v. Return the lexicographically smallest
+topological ordering (as a list of all n nodes), or None if the graph has a cycle (including a
+self-loop). Duplicate edges may appear. n >= 0.",9
+m6_max_rect,core19,medium,dp,Largest all-ones rectangle,max_rectangle,,"Write a Python function `max_rectangle(matrix: list[str]) -> int` returning the area of the largest
+axis-aligned rectangle containing only '1' characters. Rows are equal-length strings of '0'/'1'.
+The matrix may be empty ([]), and rows may be empty strings. Must handle 200x200 within a second.",10
+b2_flatten,core19,medium,bugfix,Fix buggy nested-list flatten,flatten,,"The following function should flatten arbitrarily nested lists and tuples into a single flat
+list, preserving order. ONLY list and tuple objects are expanded; everything else (including str,
+bytes, dict, set, None, numbers) is kept as a single element. Every call must be independent of
+previous calls. It is buggy. Fix it and return the complete corrected function (same name and a
+signature callable as flatten(nested)).
+
+```python
+def flatten(nested, out=[]):
+    for item in nested:
+        if hasattr(item, '__iter__'):
+            flatten(item, out)
+        else:
+            out.append(item)
+    return out
+```",9
+b3_interval_sched,core19,medium,bugfix,Fix buggy interval scheduling,max_non_overlapping,,"The following function should return the maximum number of pairwise non-overlapping intervals.
+Intervals are half-open [s, e) with s < e, so [1,2) and [2,3) do NOT overlap. The input is a list of
+(s, e) tuples and must not be modified. It is buggy. Fix it and return the complete corrected function.
+
+```python
+def max_non_overlapping(intervals):
+    intervals.sort(key=lambda iv: iv[0])
+    count, end = 0, float('-inf')
+    for s, e in intervals:
+        if s > end:
+            count += 1
+            end = e
+    return count
+```",9
+h1_expr,core19,hard,parser,Integer expression evaluator (no eval/ast),evaluate,eval/exec/compile/ast,"Write a Python function `evaluate(expr: str) -> int` that evaluates an integer arithmetic expression
+WITHOUT using eval/exec/ast/compile. Grammar:
+- non-negative integer literals (decimal digits only), binary + - * /, parentheses, unary + and -
+  (unary operators may repeat, e.g. ""--3"" == 3), arbitrary spaces between tokens.
+- * and / bind tighter than + and -; all binary operators are left-associative; unary binds tighter
+  than binary operators.
+- / is integer division truncating toward zero (e.g. -7/2 == -3, 7/-2 == -3).
+- division by zero raises ZeroDivisionError.
+- any malformed input (empty, unknown characters, missing operands, unbalanced parentheses,
+  two adjacent numbers like ""2 3"") raises ValueError.",17
+h2_json,core19,hard,parser,JSON parser (no json module),parse_json,json/eval/ast,"Write a Python function `parse_json(s: str)` that parses a JSON text per RFC 8259 WITHOUT using the
+json module, eval, or ast. Return Python values: object->dict, array->list, string->str,
+integer->int, number with fraction or exponent->float, true/false/null->True/False/None.
+Support whitespace (space, tab, CR, LF) around tokens, string escapes \"" \\ \/ \b \f \n \r \t and \uXXXX
+(surrogate pairs need not be combined). Be strict: raise ValueError for any invalid input, including
+trailing commas, single quotes, leading zeros like 01, unescaped control characters in strings,
+trailing garbage after the value, and empty input.",17
+h3_bank_sim,core19,hard,simulation,Bank transaction simulator,simulate_bank,,"Write a Python function `simulate_bank(customers: list[tuple[int, int]], tellers: int) -> list[tuple[int, int, int]]`.
+Discrete-event simulation of a bank with `tellers` tellers (indexed 0..tellers-1, tellers >= 1) and a
+single FIFO queue. customers[i] = (arrival_time, service_time), integers >= 0, NOT necessarily sorted.
+Customers join the queue in order of arrival time; ties are broken by their index in the input list.
+The customer at the front of the queue starts service at the earliest moment t >= its arrival time at
+which any teller is free (a teller that finishes at time t is free at time t); it goes to the
+LOWEST-INDEXED teller free at t. Service occupies the teller during [start, start+service_time).
+A service time of 0 is allowed (the teller is immediately free again at the same time).
+Return, in the ORIGINAL input order, a list of (teller_index, start_time, end_time) per customer.",11
+h4_k_stops,core19,hard,graph,Cheapest flight within k stops,cheapest_price,,"Write a Python function `cheapest_price(n: int, flights: list[tuple[int, int, int]], src: int, dst: int, k: int) -> int`.
+Cities are 0..n-1; flights[i] = (u, v, price) is a directed flight with price >= 0 (there may be
+several flights between the same pair). Return the cheapest total price from src to dst using at most
+k intermediate stops (i.e. at most k+1 flights), or -1 if impossible. If src == dst the answer is 0.
+Must handle n=200, 5000 flights, k=50 quickly.",10
+h5_min_window,core19,hard,string,Minimum window substring,min_window,,"Write a Python function `min_window(s: str, t: str) -> str` returning the shortest contiguous substring of
+`s` that contains every character of `t` with at least the same multiplicity (case-sensitive).
+If several shortest windows exist, return the leftmost one. If none exists, or t is empty, return """".
+Must be O(len(s) + len(t)) or close to it (len(s) up to 200_000).",10
+h6_edit_script,core19,hard,dp,Edit distance with operation script,edit_distance_ops,,"Write a Python function `edit_distance_ops(a: str, b: str) -> tuple[int, list[str]]` returning the
+Levenshtein distance between a and b (insert, delete, substitute each cost 1) together with ONE optimal
+edit script that transforms a into b. The script is a list of operations applied left to right to a
+working string that starts equal to a, where each op is one of:
+  ""I{i}{c}""  insert character c so that it ends up at index i   (e.g. ""I0x"")
+  ""D{i}""     delete the character at index i                    (e.g. ""D3"")
+  ""S{i}{c}""  replace the character at index i with c            (e.g. ""S2z"")
+Indices refer to the working string at the moment the op is applied. Characters are single non-digit
+characters. len(script) must equal the distance. Must handle strings of length 500 within a second.",9
+x1_regex,extreme10,extreme,parser,Regex engine without re,regex_fullmatch,re/regex,"Write a Python function `regex_fullmatch(pattern: str, s: str) -> bool` implementing a small regex engine
+WITHOUT using the `re` module (or any regex library). Return True iff the WHOLE string s matches.
+Syntax:
+- Special characters are  . * + ? { } ( ) [ ] | \  . Any other character is a literal.
+- `\c` (backslash + any character) is the literal c. A trailing lone backslash is an error.
+- `.` matches any single character.
+- Character class `[...]`: optional leading `^` for negation, then one or more items; an item is a single
+  character (or `\c` escape) or a range `a-z` (range with lo > hi is an error). A `-` that is first or last in the
+  class is literal. `]` must be escaped inside a class. Unterminated class is an error. Empty class `[]` is an error.
+- Grouping `( ... )`; an empty group `()` matches the empty string.
+- Alternation `|` has the lowest precedence; empty alternatives are allowed (`a|` matches """" or ""a"").
+- Quantifiers `*`, `+`, `?`, `{m}`, `{m,}`, `{m,n}` (m, n decimal, m <= n) apply to the immediately preceding
+  atom (literal, `.`, class, or group). A quantifier with nothing to apply to, a quantifier directly after
+  another quantifier (e.g. `a**`, `a{2}?`), a malformed or unterminated `{...}`, or a bare `}` or `]` outside a
+  class is an error. An unmatched `(` or `)` is an error.
+- Errors raise ValueError (for any input s, including when the pattern is checked first).
+- Matching must take polynomial time: e.g. pattern ""(a*)*b"" against ""a""*40 must return False quickly.",15
+x2_shell_split,extreme10,extreme,parser,POSIX-like shell tokenizer (no shlex),shell_split,shlex,"Write a Python function `shell_split(s: str) -> list[str]` that splits a command line into words using
+these POSIX-shell-like rules (do NOT use the shlex module):
+- Unquoted whitespace (space, tab, newline) separates words; runs of whitespace count as one separator.
+- Single quotes: every character up to the next single quote is literal (no escapes inside).
+- Double quotes: characters are literal, except a backslash followed by one of  ""  \  $  `  or newline: the
+  backslash is removed and the next character kept literally — except backslash+newline inside double quotes,
+  which removes BOTH characters (line continuation). A backslash before any other character is kept together
+  with that character (both characters stay).
+- Unquoted backslash: the backslash is removed and the next character is literal (e.g. `a\ b` is one word
+  ""a b""). Unquoted backslash+newline removes both characters and does NOT split the word.
+- Quoted and unquoted parts that touch form one word: a'b'""c"" -> ""abc"". A standalone '' or """" is an empty word.
+- An unquoted # that appears where a new word would start begins a comment that runs up to (not including) the
+  next newline; a # inside a word (a#b) or inside quotes is literal.
+- Unterminated single/double quotes, or a backslash as the very last character outside single quotes, raise
+  ValueError.",14
+x3_asm,extreme10,extreme,simulation,Assembly interpreter with pre-validation,run_program,,"Write a Python function `run_program(src: str) -> list[int]` that interprets a tiny assembly language and
+returns the list of values written by `out`.
+Syntax: one statement per line. `;` starts a comment to end of line. Blank lines are ignored. Tokens are
+separated by whitespace (no commas). A line of the form `name:` (alone on its line) defines a label;
+label names match [A-Za-z_][A-Za-z0-9_]*. Registers are single lowercase letters a-z, all initially 0.
+An operand written `x` below is either a register or a signed decimal integer literal (e.g. -5); `r` must be a
+register; `L` must be a label.
+Instructions:
+  mov r x | add r x | sub r x | mul r x
+  div r x   r = r / x truncated toward zero          (x == 0 -> ZeroDivisionError)
+  mod r x   r = r - x * trunc(r / x) (sign follows r) (x == 0 -> ZeroDivisionError)
+  jmp L | jz x L (jump if x == 0) | jnz x L (jump if x != 0)
+  call L    push the index of the next instruction on the call stack, jump to L
+  ret       pop the call stack and jump there; if the call stack is empty, halt
+  push x    push onto the value stack (separate from the call stack)
+  pop r     pop the value stack into r (empty value stack -> IndexError)
+  out x     append the value to the output
+  halt
+Execution starts at the first instruction and halts on `halt`, on `ret` with an empty call stack, or when
+running past the last instruction. The whole program is validated BEFORE execution: unknown instruction,
+wrong operand count, invalid register/operand, undefined label, or duplicate label raise ValueError even if
+that line would never execute. If more than 1_000_000 instructions would be executed, raise RuntimeError.
+Must execute ~500k instructions in well under 3 seconds.",15
+x4_pal_subseq,extreme10,extreme,dp,Count distinct palindromic subsequences,count_pal_subseq,,"Write a Python function `count_pal_subseq(s: str) -> int` returning the number of DISTINCT non-empty
+palindromic subsequences of s (as strings), modulo 1_000_000_007. s consists of lowercase letters a-z,
+0 <= len(s) <= 600. Must run in under 2 seconds for len(s) = 600.
+Example: ""bccb"" -> 6 (""b"", ""c"", ""bb"", ""cc"", ""bcb"", ""bccb"").",9
+x5_table,extreme10,extreme,string,Table formatter with East Asian width,format_table,,"Write a Python function `format_table(headers: list[str], rows: list[list], align: str) -> str` that renders
+a text table for a monospace terminal.
+- Cell text = str(value), with None rendered as """". In every cell (and header) replace ""|"" with ""\|"" and
+  ""\n"" with a single space, in that order.
+- Display width of a string = sum over characters: 0 if unicodedata.combining(ch) != 0, else 2 if
+  unicodedata.east_asian_width(ch) is ""W"" or ""F"", else 1.
+- Column width = max display width over the header and all cells of that column (may be 0).
+- align has exactly one character per column: 'l' (pad right), 'r' (pad left), 'c' (center: left padding =
+  floor(extra / 2), right padding = the rest). Padding uses spaces.
+- Output lines: header line, separator line, then one line per row, joined with ""\n"" (no trailing newline).
+  A content line is ""| "" + "" | "".join(padded cells) + "" |"". The separator line is
+  ""|"" + ""|"".join(""-"" * (w + 2) for each column width w) + ""|"".
+- Rows shorter than headers are padded with empty cells. Raise ValueError if a row is longer than headers, if
+  len(align) != len(headers), or if align contains a character other than l, r, c.",10
+x6_business_days,extreme10,extreme,simulation,"Business-day arithmetic, strict dates",add_business_days,,"Write a Python function `add_business_days(start: str, n: int, holidays: list[str]) -> str`.
+Dates are strings in the exact format YYYY-MM-DD (4-digit year, 2-digit month, 2-digit day, hyphens);
+anything else (e.g. ""20260930"", ""2026-9-30"", ""2026-02-30"", "" 2026-09-30"") raises ValueError — this applies to
+`start` and to every entry of `holidays`. A business day is Monday-Friday and not in holidays (holidays may
+contain duplicates and weekend dates).
+- n > 0: return the date reached after moving forward over exactly n business days, not counting `start`
+  itself (whether or not start is a business day). n < 0: the same, moving backward over |n| business days.
+- n == 0: return start if it is a business day, otherwise the next business day after it.
+Return the result in YYYY-MM-DD format. |n| can be up to 100000 and holidays up to 10000 entries;
+must run in under 1 second.",11
+x7_sliding_median,extreme10,extreme,data_structure,Sliding-window median (n=200k),sliding_median,,"Write a Python function `sliding_median(nums: list[int], k: int) -> list[float]` returning the median of every
+contiguous window of size k (len(nums) - k + 1 results, left to right). For odd k the median is the middle
+element; for even k it is (a + b) / 2 of the two middle elements. Every result is a Python float.
+If k > len(nums) return []. If k <= 0 raise ValueError. Values may repeat and be negative.
+Must handle len(nums) = 200_000 with k = 2_000 in under 2 seconds.",11
+x8_roman_strict,extreme10,extreme,parser,Strict canonical Roman parser,parse_roman_strict,,"Write a Python function `parse_roman_strict(s: str) -> int` that accepts ONLY the canonical modern Roman
+numeral for a value in 1..3999 (uppercase, standard subtractive pairs IV IX XL XC CD CM only, no more than
+three consecutive identical symbols, largest-to-smallest order) and returns its value. Any other string
+(empty, lowercase, ""IIII"", ""IC"", ""VX"", ""MMMM"", ""IIX"", ""XIIII"", ""VV"", ""DCD"", non-Roman characters, leading or
+trailing spaces, ...) raises ValueError.",8
+x9_spreadsheet,extreme10,extreme,parser,"Spreadsheet evaluator (cycles, error precedence)",evaluate_sheet,,"Write a Python function `evaluate_sheet(cells: dict[str, str]) -> dict[str, object]` that evaluates a tiny
+spreadsheet and returns a dict with a value for EVERY key of `cells`.
+- Cell names: one uppercase letter A-Z followed by a row number 1-999 without leading zeros (e.g. ""B12"").
+- Raw content: if it starts with ""="", it is a formula. Otherwise, if it fully matches an optional sign followed
+  by decimal digits (regex [+-]?[0-9]+, no surrounding spaces) it is that int; otherwise it is a text value
+  (the raw string as is).
+- Formula grammar (after the ""=""): int literals, cell references (uppercase only), binary + - * /, unary -,
+  parentheses, and SUM(X1:Y2) where the argument is a rectangular range given by any two opposite corners.
+  Spaces are allowed between tokens. / is integer division truncating toward zero. Anything else (including an
+  empty formula, lowercase references, SUM without a range) is malformed.
+- Values: an absent cell counts as 0. A text cell used as an operand gives ""#VALUE!"". SUM adds the int values
+  in the range and skips text and absent cells (but errors in the range propagate).
+- Errors are the strings ""#ERROR!"" (malformed formula), ""#VALUE!"", ""#DIV/0!"", ""#CYCLE!"". Evaluate operands
+  left to right; the first error encountered becomes the result (for SUM, scan the range row by row top to
+  bottom, left to right within a row). A malformed formula yields ""#ERROR!"" regardless of anything else.
+- Cycles: consider the static dependency graph (a formula depends on every cell it names, including every
+  cell inside its SUM ranges, whether or not it exists). Every well-formed formula cell that lies on a cycle
+  (including a self-reference) evaluates to ""#CYCLE!"". Cells that merely depend on such cells get ""#CYCLE!""
+  through the normal first-error rule.
+- Must handle dependency chains of 900 cells.",15
+x10_lfu,extreme10,extreme,data_structure,O(1) LFU cache class,LFUCache,,"Implement a Python class `LFUCache`:
+- `__init__(self, capacity: int)` (capacity >= 0).
+- `get(self, key)` returns the value or -1 if absent; a successful get increments the key's use count.
+- `put(self, key, value)` inserts or updates. Updating an existing key changes its value and increments its
+  use count. Inserting a NEW key when the cache is full first evicts the key with the smallest use count;
+  among keys with that smallest count, evict the least recently used one (a get or put counts as a use).
+  A newly inserted key has use count 1. With capacity 0, put does nothing.
+Both operations must be O(1) average (200k operations in well under 2 seconds).",10

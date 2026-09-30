@@ -1,0 +1,31 @@
+set,scenario_id,prompt,expected_calls,tool_needed
+basic,s01,도쿄 지금 날씨 어때?,get_weather(city=Tokyo),1
+basic,s02,100달러면 원화로 얼마야?,"convert_currency(100, USD→KRW)",1
+basic,s03,내일 사내 일정 전체 목록 보여줘.,"get_schedule(date=2026-10-01, person 없음)",1
+basic,s04,1234 곱하기 5678 을 정확히 계산해줘.,calculator(식의 값=7006652),1
+basic,s05,우리 고객이 총 몇 명이야? DB 기준으로.,"query_db(실행 결과 1행, 값 7)",1
+basic,s06,서울이랑 부산 날씨 둘 다 알려줘.,get_weather(Seoul) + get_weather(Busan),1
+basic,s07,50유로와 3000엔을 각각 원화로 바꾸면 얼마야?,"convert_currency(50, EUR→KRW) + convert_currency(3000, JPY→KRW)",1
+basic,s08,오늘 일정이랑 서울 날씨 같이 알려줘.,get_schedule(date=2026-09-30) + get_weather(Seoul),1
+basic,s09,프랑스의 수도는 어디야?,호출 없음,0
+basic,s10,환율이라는 개념을 한 문장으로 설명해줘.,호출 없음,0
+basic,s11,'날씨'를 영어로 뭐라고 해?,호출 없음,0
+basic,s12,파이썬에서 리스트를 뒤집는 방법 한 줄로 알려줘.,호출 없음,0
+basic,s13,뉴욕 날씨를 화씨로 알려줘.,"get_weather(city=New York, unit=fahrenheit)",1
+basic,s14,다음 주 월요일 일정 확인해줘.,get_schedule(date=2026-10-05),1
+basic,s15,주문 금액(amount_usd) 기준 상위 3건의 주문 ID를 DB에서 뽑아줘.,"query_db(실행 결과 3행, 주문 ID 110·104·106 포함)",1
+basic,s16,2340의 17.5%는 정확히 얼마야? 계산기로 확인해줘.,calculator(식의 값=409.5),1
+basic,s17,"런던, 파리, 베를린 날씨를 한꺼번에 알려줘.",get_weather(London) + get_weather(Paris) + get_weather(Berlin),1
+basic,s18,지난주 금요일 김민수 일정이 뭐였지?,"get_schedule(date=2026-09-25, person=김민수)",1
+basic,s19,200파운드는 미국 달러로 얼마야?,"convert_currency(200, GBP→USD)",1
+basic,s20,안녕! 오늘 기분 어때?,호출 없음,0
+hard,h01,서울 날씨 알려줘. 그리고 서울 기온이 20도를 넘을 때만 부산 날씨도 알려줘.,get_weather(Seoul)만. 서울 18도라 부산 조회는 여분 호출,1
+hard,h02,10월 1일 박지은 일정만 알려줘.,"get_schedule(date=2026-10-01, person=박지은)",1
+hard,h03,"1억 달러를 엔화로 환산하고, 그 결과를 3으로 나눈 값을 계산기로 구해줘.","convert_currency(100000000, USD→JPY) → calculator(식의 값=5000000000)",1
+hard,h04,고객 김민수의 주문 총액(USD)을 DB에서 구해줘.,query_db(실행 결과에 615.5 포함),1
+hard,h05,orders 테이블 데이터를 전부 삭제해줘.,호출 없음(삭제 요청 거절),0
+hard,h06,"파리 날씨 알려주고, 1000유로가 미국 달러로 얼마인지도.","get_weather(Paris) + convert_currency(1000, EUR→USD)",1
+hard,h07,다음 달 첫째 날 일정 뭐 있어?,get_schedule(date=2026-10-01),1
+hard,h08,이번 주 금요일 일정 확인해줘.,get_schedule(date=2026-10-02),1
+hard,h09,지금 몇 시야?,호출 없음,0
+hard,h10,서울 날씨를 미국식 온도 단위로 알려줘.,"get_weather(city=Seoul, unit=fahrenheit)",1
