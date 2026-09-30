@@ -10,7 +10,7 @@ Measured on 2026-09-30 in the Codex environment of a ChatGPT Pro subscription. g
 - **But not separable from the top tier.** gpt-6-astra and gpt-5.6-sol land within 1-2 items on every accuracy track. Most tracks hit the ceiling; gpt-6-luna scored lower (e.g. 14/20 on the hardest coding tier), and its reasoning score is the only one whose 95% CI separates from gpt-6.1-sol (high effort).
 - **Slow.** Visible streaming speed is about 31 tok/s (gpt-6-astra 33, gpt-6-sol 46, gpt-6-luna 49, gpt-5.6-sol 55). At effort max the reasoning prompt took 53.5 s (gpt-6-sol 22.6 s).
 - **Effort scales reasoning tokens monotonically** (low to max: 283 to 1,399 tokens, x4.94, Spearman 1.00), with no accuracy gain observed on these tasks.
-- **Fast mode works, "ultrafast" does not.** `service_tier: "priority"` gave x1.65-x1.93 tok/s; `ultrafast` was accepted but gave x0.99.
+- **Fast mode.** `service_tier: "priority"` gave x1.65-x1.93 tok/s.
 - **Long context.** Max accepted input was 921,858 tokens (same as gpt-6-sol and gpt-6-astra). Needle retrieval 98/98 from 16K to about 914K. At 600K input, median response time 12.95 s (gpt-6-sol 14.37 s, gpt-6-astra 19.52 s).
 - **Caveats.** N = 2-3 per cell, ceiling effects on most tracks, and numbers come from a subscription environment, so they may differ from the official API.
 
@@ -28,14 +28,14 @@ Measured on 2026-09-30 in the Codex environment of a ChatGPT Pro subscription. g
 
 이 레포에는 **데이터만** 있습니다. 문제 정의, 호출 단위 채점 결과, 요약표, 그래프입니다. 실험 코드, 채점기 코드, 숨김 테스트, 모델 응답 원문은 넣지 않았습니다. 응답에서는 채점에 쓴 짧은 파싱값(최종 답, 비전 필드값, 제약 통과 여부 등)만 남겼습니다.
 
-[^calls]: 3,527회에는 raw 기록이 없는 사전 점검 6회가 포함됩니다. 툴 트랙 1,346회 가운데 실행 환경 확인용 진단 호출 60회는 모델 특성을 재는 호출이 아니어서 공개 데이터에서 제외했습니다. 공개 데이터의 툴 트랙은 1,286회분입니다.
+[^calls]: 3,527회에는 raw 기록이 없는 사전 점검 6회가 포함됩니다. 툴 트랙 1,346회 가운데 실행 환경 확인용 진단 호출 60회는 모델 특성을 재는 호출이 아니어서 공개 데이터에서 제외했습니다. 공개 데이터의 툴 트랙은 1,286회분입니다. Fast 모드 67회 가운데 `service_tier` 추가 값 확인용 6회도 같은 이유로 제외해 공개분은 61회입니다.
 
 ## 무엇을 테스트했나
 
 | 트랙 | 과제 수 | 반복 | 호출 | 채점 방식 | 데이터 |
 |---|---|---|---|---|---|
 | 속도 (effort 스케일링) | 프롬프트 3종 × effort 5단계 | 셀당 3 | 253 (본 실험 225) | TTFT·총시간·추론토큰·가시 tok/s 측정, 셔플 실행 | [data/speed](data/speed/) |
-| Fast 모드 | 프롬프트 2종 × `service_tier` | 짝당 3 | 67 | 기본·Fast 호출을 짝으로 연달아 실행, 짝별 tok/s 배율 | [data/speed](data/speed/) |
+| Fast 모드 | 프롬프트 2종 × `service_tier` | 짝당 3 | 61 (공개분) | 기본·Fast 호출을 짝으로 연달아 실행, 짝별 tok/s 배율 | [data/speed](data/speed/) |
 | 추론 (수학·논리) | 44문항 | 2 (medium·high) | 884 | 마지막 `ANSWER:` 줄을 정답과 분수 동치 비교 | [data/reasoning](data/reasoning/) |
 | 코딩 | 29과제 (core19 + extreme10) | 2 | 419 | 숨김 테스트 311개 실행, pass@1 + 수리 루프 + effort 스윕 | [data/coding](data/coding/) |
 | 툴 사용 | FC 30시나리오 · 에이전트 8과제 · JSON 15케이스 | 2 | 1,286 (공개분) | 호출 집합 대조, 최종 답 대조, JSON Schema 검증 | [data/tools](data/tools/) |
@@ -72,7 +72,7 @@ gpt-6.1-sol 열이 대상 모델입니다. 트랙별 상세와 출처 파일은 
 
 ### 속도 · Fast 모드 — [data/speed](data/speed/)
 
-가시 스트리밍 속도는 약 31 tok/s 로 effort·프롬프트가 바뀌어도 거의 일정했습니다. gpt-6-astra(33.0)와 같은 대역이고 gpt-6-sol·gpt-6-luna·gpt-5.6-sol(46~55)보다 느렸습니다. effort 를 올리면 reasoning 프롬프트의 추론토큰이 283 → 1,399 로 단조 증가했고(×4.94, Spearman 1.00), max 총시간 53.5초는 5개 모델 중 가장 길었습니다. 다만 astra(×4.11)·6-sol(×3.99)도 Spearman 1.00 이라 "effort 를 가장 잘 따르는 모델"로 가를 근거는 없습니다. 이 문제는 low 에서 이미 3/3 정답이라 effort 를 올린 정확도 이득은 관측되지 않았습니다. Fast 모드(`service_tier: "priority"`)는 tok/s 를 ×1.65(250단어)~×1.93(600단어) 올렸고, 600단어 총시간이 33.6초 → 16.6초로 줄었습니다. `ultrafast` 는 에러 없이 받지만 ×0.99 로 효과가 없었습니다.
+가시 스트리밍 속도는 약 31 tok/s 로 effort·프롬프트가 바뀌어도 거의 일정했습니다. gpt-6-astra(33.0)와 같은 대역이고 gpt-6-sol·gpt-6-luna·gpt-5.6-sol(46~55)보다 느렸습니다. effort 를 올리면 reasoning 프롬프트의 추론토큰이 283 → 1,399 로 단조 증가했고(×4.94, Spearman 1.00), max 총시간 53.5초는 5개 모델 중 가장 길었습니다. 다만 astra(×4.11)·6-sol(×3.99)도 Spearman 1.00 이라 "effort 를 가장 잘 따르는 모델"로 가를 근거는 없습니다. 이 문제는 low 에서 이미 3/3 정답이라 effort 를 올린 정확도 이득은 관측되지 않았습니다. Fast 모드(`service_tier: "priority"`)는 tok/s 를 ×1.65(250단어)~×1.93(600단어) 올렸고, 600단어 총시간이 33.6초 → 16.6초로 줄었습니다.
 
 ![속도 요약](images/03_speed.png)
 
@@ -122,7 +122,7 @@ gpt-6.1-sol 열이 대상 모델입니다. 트랙별 상세와 출처 파일은 
   | 트랙 | 끊긴 기록 | 처리 |
   |---|---|---|
   | 속도 (effort) | 0 / 225 | — |
-  | Fast 모드 | 1 / 67 | 재호출본으로 교체. 원기록은 `used_in_summary=false` |
+  | Fast 모드 | 1 / 61 | 재호출본으로 교체. 원기록은 `used_in_summary=false` |
   | 추론 | 5 / 884 | 분모에서 제외, 재실행 성공분 사용. 1셀은 재실행도 끊겨 값 없음(`observed=false`) |
   | 코딩 | 4 / 374 (생성 호출) | 채점 제외, 같은 조건 재시도 결과 사용 |
   | 툴 | 3 (gpt-5.6-sol JSON strict) | 채점·지연 집계에서 제외 |
@@ -141,7 +141,7 @@ gpt-6.1-sol-benchmark/
 ├── LICENSE                CC BY 4.0
 ├── images/                요약 이미지 5장 (01_cover ~ 05_guide)
 └── data/
-    ├── speed/             effort 스케일링 225회 + Fast 모드 67회, 그래프 2장
+    ├── speed/             effort 스케일링 225회 + Fast 모드 61회, 그래프 2장
     ├── reasoning/         문항 44개, 결과 880행, 요약
     ├── coding/            과제 29개(명세), 첫 시도 370행, 수리 42행, 요약
     ├── tools/             툴 정의·픽스처, FC 300행, 에이전트 80행, JSON 300행, 요약

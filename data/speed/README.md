@@ -5,7 +5,7 @@
 두 가지를 쟀습니다.
 
 1. **effort별 속도와 토큰 사용량.** 같은 질문을 reasoning effort 5단계로 던졌을 때 첫 글자까지 걸리는 시간(TTFT), 전체 응답 시간, 추론토큰, 스트리밍 속도가 어떻게 바뀌는지.
-2. **Fast 모드.** `service_tier: "priority"`(Codex에서 "Fast"로 표시)를 켜면 실제로 얼마나 빨라지는지, 그리고 `ultrafast` 값이 효과가 있는지.
+2. **Fast 모드.** `service_tier: "priority"`(Codex에서 "Fast"로 표시)를 켜면 실제로 얼마나 빨라지는지.
 
 측정 환경은 ChatGPT Pro 구독의 Codex 환경이고, 측정일은 2026-09-30입니다.
 
@@ -35,7 +35,7 @@
 
 사전 점검으로 gpt-6.1-sol이 받는 effort 값을 확인했습니다. low·medium·high·xhigh·max는 받고, `none`·`minimal`은 HTTP 400(`not supported with the 'gpt-6.1-sol' model`)이었습니다.
 
-### 2) Fast 모드 (67회 호출)
+### 2) Fast 모드 (61회 호출)
 
 | 항목 | 내용 |
 |---|---|
@@ -43,7 +43,6 @@
 | 프롬프트 | `mid_250w`: TCP 혼잡 제어 약 250단어 설명 / `long_600w`: 멱등 REST API 설계 가이드 약 600단어 |
 | 설계 | 기본 호출과 Fast 호출을 **짝으로 연달아** 실행. 짝 안의 순서는 반복마다 뒤집음 |
 | 반복 | 조합당 3쌍. effort=low, 동시성 1 |
-| ultrafast | gpt-6.1-sol × mid_250w에서 기본 vs `ultrafast` 3쌍 |
 | 지표 | 짝마다 (Fast tok/s ÷ 기본 tok/s)를 구하고 그 중앙값을 배율로 씀 |
 
 Fast 트랙의 tok/s는 출력토큰 ÷ (총시간 − TTFT)입니다(추론토큰 포함. effort=low라 대부분 0). 실험 1의 가시 tok/s와 정의가 조금 다릅니다.
@@ -115,9 +114,8 @@ short_fact는 5개 모델 모두 15/15(합계 75/75) 정답(Canberra)이었습�
 | gpt-6-luna | 600w | 55.2 → 82.6 | ×1.56 [1.49–2.11] | ×1.46 |
 | gpt-5.6-sol | 250w | 62.0 → 81.1 | ×1.32 [1.21–1.44] | ×1.32 |
 | gpt-5.6-sol | 600w | 58.1 → 84.7 | ×1.73 [1.42–1.80] | ×1.38 |
-| gpt-6.1-sol **ultrafast** | 250w | 26.5 → 26.2 | ×0.99 [0.93–1.17] | ×1.03 |
 
-`service_tier` 허용값: `default`·`priority`·`ultrafast`는 받고, `fast`·`ultra`·`flex`·`turbo`·`auto`는 HTTP 400(`Unsupported service_tier`)이었습니다. 응답 이벤트의 `service_tier`는 priority로 불러도 항상 `default`로 돌아와서, 적용 여부는 속도로만 확인할 수 있었습니다. Codex 모델 카탈로그는 모든 모델에 Fast 하나만 제공하고, gpt-6.1-sol·gpt-6-astra의 Fast 설명은 "2x speed, increased usage"입니다.
+응답 이벤트의 `service_tier`는 priority로 불러도 항상 `default`로 돌아와서, 적용 여부는 속도로만 확인할 수 있었습니다. Codex 모델 카탈로그는 모든 모델에 Fast 하나만 제공하고, gpt-6.1-sol·gpt-6-astra의 Fast 설명은 "2x speed, increased usage"입니다.
 
 ## gpt-6.1-sol 관찰
 
@@ -129,7 +127,6 @@ short_fact는 5개 모델 모두 15/15(합계 75/75) 정답(Canberra)이었습�
 4. reasoning 문제는 low에서 이미 3/3 정답이었습니다. 이 난도에서는 effort를 올려 얻은 정확도 이득이 관측되지 않았습니다(천장 효과).
 5. short_fact low의 TTFT는 1.87초로 gpt-6-sol(1.29)·gpt-5.6-sol(1.33)·gpt-6-luna(1.40)보다 약 0.5초 늦고 gpt-6-astra(1.87)와 같았습니다.
 6. Fast 모드에서 tok/s가 ×1.65(250w)~×1.93(600w) 빨라졌습니다. 600w 기준 총시간이 33.6초 → 16.6초로 줄었습니다.
-7. `ultrafast`는 에러 없이 받지만 속도 변화가 없었습니다(×0.99).
 
 **해석**
 
@@ -187,11 +184,11 @@ model, prompt, effort, n_ok, n_fail과 각 지표의 `_median`(중앙값)·`_iqr
 
 위 "모델별 대표값" 표의 원자료입니다. 가시 tok/s는 medium_explain 15회의 중앙값·q1·q3, TTFT는 short_fact low 3회와 전 effort 15회 중앙값, reasoning 총시간·추론토큰은 low·max 셀 중앙값, 정답 수는 15회 기준입니다.
 
-### `fast_mode_calls.csv` — Fast 트랙 호출 단위 (67행)
+### `fast_mode_calls.csv` — Fast 트랙 호출 단위 (61행)
 
 | 컬럼 | 뜻 |
 |---|---|
-| tier | `default`, `priority`(Fast), `ultrafast` |
+| tier | `default`, `priority`(Fast) |
 | rep | 반복 번호(0~2) |
 | order_in_pair | 짝 안에서 먼저(0) 불렸는지 나중(1)인지 |
 | ttft_s, total_s | 첫 텍스트까지·스트림 종료까지 시간(초) |
@@ -201,17 +198,13 @@ model, prompt, effort, n_ok, n_fail과 각 지표의 `_median`(중앙값)·`_iqr
 | is_retry_of_incomplete | 끊긴 호출을 대신한 재호출 |
 | used_in_summary | 요약·짝 계산에 쓰였는지 |
 
-### `fast_mode_pairs.csv` — 짝 단위 (33행)
+### `fast_mode_pairs.csv` — 짝 단위 (30행)
 
-기본 호출과 Fast(또는 ultrafast) 호출 한 쌍이 한 행입니다. `first_in_pair`는 짝에서 먼저 불린 쪽, `speedup_tok_s` = fast_tok_s ÷ default_tok_s, `speedup_total` = default_total_s ÷ fast_total_s(1보다 크면 Fast가 빠름).
+기본 호출과 Fast 호출 한 쌍이 한 행입니다. `first_in_pair`는 짝에서 먼저 불린 쪽, `speedup_tok_s` = fast_tok_s ÷ default_tok_s, `speedup_total` = default_total_s ÷ fast_total_s(1보다 크면 Fast가 빠름).
 
-### `fast_mode_cells.csv` — 조합별 요약 (11행)
+### `fast_mode_cells.csv` — 조합별 요약 (10행)
 
 모델×프롬프트×tier마다 기본·Fast의 tok/s·총시간·TTFT 중앙값과, 짝별 배율의 중앙값·최소·최대입니다. 중앙값끼리 나눈 값이 아니라 **짝별 배율의 중앙값**이라 `fast_tok_s_median ÷ default_tok_s_median`과 약간 다를 수 있습니다.
-
-### `fast_mode_tier_values.csv`
-
-`service_tier`에 넣어 본 값별로 받아들여졌는지와 관측된 효과입니다.
 
 ### 그래프
 

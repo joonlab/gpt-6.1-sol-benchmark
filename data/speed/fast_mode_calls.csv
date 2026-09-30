@@ -19,8 +19,6 @@ gpt-5.6-sol,mid_250w,default,0,0,4.151,10.189,403,73,66.74,false,false,true
 gpt-5.6-sol,mid_250w,priority,0,1,1.834,6.719,396,49,81.07,false,false,true
 gpt-5.6-sol,long_600w,default,0,0,2.271,17.822,903,42,58.06,false,false,true
 gpt-5.6-sol,long_600w,priority,0,1,2.001,13.579,954,31,82.4,false,false,true
-gpt-6.1-sol,mid_250w,default,0,0,2.363,14.432,320,0,26.51,false,false,true
-gpt-6.1-sol,mid_250w,ultrafast,0,1,1.584,14.011,325,0,26.15,false,false,true
 gpt-6.1-sol,mid_250w,priority,1,0,3.671,10.34,314,0,47.08,false,false,true
 gpt-6.1-sol,mid_250w,default,1,1,2.282,13.332,316,0,28.6,false,false,true
 gpt-6.1-sol,long_600w,priority,1,0,1.918,16.337,826,28,57.29,false,false,true
@@ -41,8 +39,6 @@ gpt-5.6-sol,mid_250w,priority,1,0,1.933,6.496,407,53,89.19,false,false,true
 gpt-5.6-sol,mid_250w,default,1,1,1.909,7.942,374,41,61.99,false,false,true
 gpt-5.6-sol,long_600w,priority,1,0,4.318,13.37,974,39,107.6,false,false,true
 gpt-5.6-sol,long_600w,default,1,1,2.433,18.397,955,74,59.82,false,false,true
-gpt-6.1-sol,mid_250w,ultrafast,1,0,1.597,14.256,312,0,24.65,false,false,true
-gpt-6.1-sol,mid_250w,default,1,1,1.667,14.159,331,0,26.5,false,false,true
 gpt-6.1-sol,mid_250w,default,2,0,2.281,12.627,316,0,30.54,false,false,true
 gpt-6.1-sol,mid_250w,priority,2,1,2.765,9.637,351,37,51.07,false,false,true
 gpt-6.1-sol,long_600w,default,2,0,5.025,34.392,847,44,28.84,false,false,true
@@ -63,6 +59,4 @@ gpt-5.6-sol,mid_250w,default,2,0,2.723,9.299,401,67,60.98,false,false,true
 gpt-5.6-sol,mid_250w,priority,2,1,2.385,7.062,377,23,80.61,false,false,true
 gpt-5.6-sol,long_600w,default,2,0,3.326,23.068,965,39,48.88,false,false,true
 gpt-5.6-sol,long_600w,priority,2,1,2.791,14.262,972,92,84.73,false,false,true
-gpt-6.1-sol,mid_250w,default,2,0,2.17,14.303,327,0,26.95,false,false,true
-gpt-6.1-sol,mid_250w,ultrafast,2,1,2.044,12.213,320,0,31.47,false,false,true
 gpt-6-astra,mid_250w,default,2,0,1.709,18.56,310,0,18.4,false,true,true
